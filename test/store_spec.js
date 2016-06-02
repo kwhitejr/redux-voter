@@ -5,7 +5,7 @@ import makeStore from '../src/store';
 
 describe('store', () => {
 
-  it('is a Redux store configured with teh correct reducer', () => {
+  it('is a Redux store configured with the correct reducer', () => {
     const store = makeStore();
     expect(store.getState()).to.equal(Map());
 

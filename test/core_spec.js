@@ -1,7 +1,7 @@
 import {List, Map} from 'immutable';
 import {expect} from 'chai';
 
-import {setEntries, next} from '../src/core';
+import {setEntries, next, vote} from '../src/core';
 
 describe('application logic', () => {
 
@@ -62,7 +62,7 @@ describe('application logic', () => {
             '28 Days Later': 3
           })
         }),
-        entries: List('Sunshine', 'Millions', '127 Hours')
+        entries: List.of('Sunshine', 'Millions', '127 Hours')
       });
       const nextState = next(state);
       expect(nextState).to.equal(Map({
@@ -98,7 +98,7 @@ describe('application logic', () => {
       const state = Map({
         pair: List.of('Trainspotting', '28 Days Later')
       });
-      const nextState = vote(state, 'Trainspotting');
+      const nextState = vote(state, 'Trainspotting')
       expect(nextState).to.equal(Map({
         pair: List.of('Trainspotting', '28 Days Later'),
         tally: Map({
@@ -119,7 +119,7 @@ describe('application logic', () => {
       expect(nextState).to.equal(Map({
         pair: List.of('Trainspotting', '28 Days Later'),
         tally: Map({
-          'Trainspotting': 3,
+          'Trainspotting': 4,
           '28 Days Later': 2
         })
       }));
